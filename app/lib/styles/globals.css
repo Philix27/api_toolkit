@@ -13,7 +13,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 47.4% 11.2%;
 
-    --border: 214.3 31.8% 91.4%;
+    --border: #e0edf7;
     --input: 214.3 31.8% 91.4%;
 
     --card: 0 0% 100%;
@@ -49,19 +49,19 @@
     --popover: 224 71% 4%;
     --popover-foreground: 215 20.2% 65.1%;
 
-    --border: 216 34% 17%;
-    --input: 216 34% 17%;
+    --border:#1e1f24;
+    --input:#1b1d23;
 
-    --card: 224 71% 4%;
-    --card-foreground: 213 31% 91%;
+    --card: #0d1116;
+    --card-foreground: #efefef;
 
-    --primary: #0d1116;
+    --primary: #008dc5;
     --primary-foreground: #fff;
 
     --secondary: #161b22;
     --secondary-foreground: #fff;
 
-    --destructive: 0 63% 31%;
+    --destructive: #fb2121;
     --destructive-foreground: #fff;
 
     --ring: 216 34% 17%;
