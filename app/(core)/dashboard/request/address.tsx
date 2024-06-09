@@ -1,4 +1,13 @@
+"use client"
+
+import { useState } from "react"
+
 export function TopSearch() {
+  const [path, setPath] = useState("http://localhost:3666/")
+
+  const onSend = () => {
+    runA
+  }
   return (
     <div className="px-5">
       <div
@@ -19,6 +28,10 @@ export function TopSearch() {
         </div>
         <div className="flex w-full">
           <input
+            onChange={(e) => {
+              setPath(e.target.value)
+            }}
+            value={path}
             type="text"
             placeholder="path"
             className={`
@@ -30,6 +43,7 @@ export function TopSearch() {
         </div>
         <div className="p-2">
           <button
+            onClick={onSend}
             className={
               "bg-primary px-4 py-1 rounded-md font-bold text-sm cursor-pointer hover:opacity-85"
             }

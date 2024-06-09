@@ -1,7 +1,7 @@
 import { useApiClientStore } from "./apiClient"
 import { useSettingsStore } from "./settings"
 
-export const AppStores = {
+export const AppStore = {
   useSettingsStore,
   useApiClientStore,
 }

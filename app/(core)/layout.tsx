@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 
-import { AppStores } from "@/app/lib"
+import { AppStore } from "@/app/lib"
 
 import { Sidebar } from "./_comps"
 import { SidebarMobile } from "./_comps/SidebarMobile"
@@ -13,7 +13,7 @@ interface RootLayoutProps {
 
 export default function ProtectedLayout({ children }: RootLayoutProps) {
   const [openNav, setOpenNav] = useState(false)
-  const isSidebarOpen = AppStores.useSettingsStore(
+  const isSidebarOpen = AppStore.useSettingsStore(
     (state) => state.isSidebarOpen
   )
 
@@ -21,7 +21,7 @@ export default function ProtectedLayout({ children }: RootLayoutProps) {
     <div className="flex flex-col flex-grow h-[calc(100vh-70px)]">
       {openNav && <SidebarMobile />}
       {isSidebarOpen && <Sidebar />}
-      <div className={"flex-1"} style={{ height: "100%" }}>
+      <div className={"flex-1 h-full"}>
         {children}
       </div>
     </div>

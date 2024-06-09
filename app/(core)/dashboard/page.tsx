@@ -1,43 +1,37 @@
+"use client"
+
 import React from "react"
 import { TextB, TextH } from "@/comps"
+import { AppStore } from "@/lib"
 
-import { TopSearch } from "./address"
+import RequestSection from "./request"
 
 export default function Page() {
+  const store = AppStore.useApiClientStore()
   return (
     <div className={"flex size-full"}>
-      <div className={"w-1/2"}>
-        <TopSearch />
-        <div className="flex w-full items-center justify-between mt-2 border-b">
-          <TabTitle title={"Query"} />
-          <TabTitle title={"Header"} />
-          <TabTitle title={"Body"} />
-          <TabTitle title={"Auth"} />
-          <TabTitle title={"Test"} />
-        </div>
-      </div>
-
+      <RequestSection />
       <div className={"w-1/2 border-l h-full"}>
         <div className="h-[50px] flex items-center mb-4">
-          <TabTitle title={"Status"} />
-          <TabTitle title={"Size"} />
-          <TabTitle title={"Time"} />
+          <TabTitle title={"Status"} onClick={() => {}} />
+          <TabTitle title={"Size"} onClick={() => {}} />
+          <TabTitle title={"Time"} onClick={() => {}} />
         </div>
         <div className="flex w-full items-center justify-between mt-2 border-b">
-          <TabTitle title={"Response"} />
-          <TabTitle title={"Headers"} />
-          <TabTitle title={"Cookies"} />
-          <TabTitle title={"Result"} />
-          <TabTitle title={"Docs"} />
+          <TabTitle title={"Response"} onClick={() => {}} />
+          <TabTitle title={"Headers"} onClick={() => {}} />
+          <TabTitle title={"Cookies"} onClick={() => {}} />
+          <TabTitle title={"Result"} onClick={() => {}} />
+          <TabTitle title={"Docs"} onClick={() => {}} />
         </div>
       </div>
     </div>
   )
 }
 
-function TabTitle(params: { title: string }) {
+export function TabTitle(params: { title: string; onClick: VoidFunction }) {
   return (
-    <div className="px-6 py-2 hover:bg-primary">
+    <div className="px-6 py-2 hover:bg-primary" onClick={params.onClick}>
       <TextB>{params.title}</TextB>
     </div>
   )

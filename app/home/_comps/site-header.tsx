@@ -3,13 +3,13 @@
 import { LuPanelLeftClose, LuPanelRightClose } from "react-icons/lu"
 
 import { ThemeToggle } from "@/app/comps"
-import { AppStores, StylesUtils } from "@/app/lib"
+import { AppStore, StylesUtils } from "@/app/lib"
 
 import { MainNav } from "./main-nav"
 import { siteConfig } from "./site"
 
 export function SiteHeader() {
-  const state = AppStores.useSettingsStore((state) => state)
+  const state = AppStore.useSettingsStore((state) => state)
 
   return (
     <header className="bg-background sticky top-0 z-40 w-full border-b">

@@ -5,13 +5,13 @@ import Link from "next/link"
 import { LayoutDashboard } from "lucide-react"
 
 import { TextH } from "@/app/comps"
-import { AppPages, AppStores, StylesUtils, cn } from "@/app/lib"
+import { AppPages, AppStore, StylesUtils, cn } from "@/app/lib"
 
 import { data } from "./SidebarData"
 import { SidebarGroup } from "./SidebarGroup"
 
 export function Sidebar(props: { className?: string }) {
-  const state = AppStores.useSettingsStore((state) => state)
+  const state = AppStore.useSettingsStore((state) => state)
   return (
     <div className={`fixed w-full bg-slate-800/40 flex`}>
       <div
