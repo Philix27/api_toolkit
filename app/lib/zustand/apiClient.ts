@@ -1,3 +1,4 @@
+import { AxiosResponseHeaders, RawAxiosResponseHeaders } from "axios"
 import { create } from "zustand"
 import { createJSONStorage, persist } from "zustand/middleware"
 
@@ -12,20 +13,20 @@ export type ICollection = {
 }
 
 export interface ISlice {
-  collection?: ICollection[]
   responseBody?: string
   responseCookies?: string
-  responseHeaders?: string
+  responseHeaders?: RawAxiosResponseHeaders | AxiosResponseHeaders
   responseDocs?: string
   responseSize?: string
-  responseStatus?: string
+  responseStatus?: number
   responseTime?: string
-  bearerToken?: string
-  basePath?: string
+  requestBearerToken?: string
+  requestBasePath?: string
   activeTab?: IApiActiveTab
-  apiMethod?: IApiMethods
-  headers?: IQueryParams[]
-  queryParams?: IQueryParams[]
+  requestApiMethod?: IApiMethods
+  requestHeaders?: any
+  collection?: ICollection[]
+  requestQueryParams?: IQueryParams[]
 }
 
 export interface ISliceUpdate extends Required<ISlice> {
@@ -33,21 +34,21 @@ export interface ISliceUpdate extends Required<ISlice> {
   clear: () => void
 }
 
-export const defaultValues = {
+export const defaultValues: Required<ISlice> = {
+  requestHeaders: [],
   collection: [],
-  responseSize: "",
-  responseTime: "",
-  responseStatus: "",
+  requestQueryParams: [],
+  requestApiMethod: "GET" as IApiMethods,
+  activeTab: "BODY" as IApiActiveTab,
   responseBody: "",
   responseCookies: "",
-  responseHeaders: "",
   responseDocs: "",
-  bearerToken: "",
-  basePath: "",
-  headers: [],
-  queryParams: [],
-  apiMethod: "GET" as IApiMethods,
-  activeTab: "BODY" as IApiActiveTab,
+  responseSize: "",
+  responseStatus: 0,
+  responseTime: "",
+  requestBearerToken: "",
+  requestBasePath: "",
+  responseHeaders: {},
 }
 
 export const useApiClientStore = create(

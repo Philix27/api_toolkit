@@ -16,5 +16,4 @@ export const RequestTabs: Record<IApiActiveTab, ReactNode> = {
   HEADER: <HeadersTab />,
   BODY: <BodyTab />,
   AUTH: <BodyTab />,
-  TEST: <BodyTab />,
 }

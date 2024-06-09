@@ -8,13 +8,23 @@ export function TopSearch() {
   const store = AppStore.useApiClientStore()
 
   const onSend = async () => {
-    const res = await runApi({
+    await runApi({
       url: path,
       method: "GET",
     })
-
-    console.log(res)
-    store.update({responseBody: res.data})
+      .then((res) => {
+        store.update({
+          responseBody: res.data,
+          responseHeaders: res.headers,
+          responseStatus: res.status,
+        })
+      })
+      .catch((err) => {
+        store.update({
+          responseBody: err.msg,
+          responseStatus: err.code,
+        })
+      })
   }
 
   return (
