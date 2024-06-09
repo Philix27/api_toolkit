@@ -1,7 +1,7 @@
 import { create } from "zustand"
 import { createJSONStorage, persist } from "zustand/middleware"
 
-export type IApiActiveTab = "QUERY" | "HEADER" | "BODY" | "AUTH" | "TEST"
+export type IApiActiveTab = "QUERY" | "HEADER" | "BODY" | "AUTH"
 export type IApiMethods = "GET" | "POST" | "DELETE" | "PUT" | "PATCH"
 export type IQueryParams = { key: string; value: string }
 export type ICollection = {

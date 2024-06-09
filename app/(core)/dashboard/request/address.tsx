@@ -1,13 +1,22 @@
 "use client"
 
 import { useState } from "react"
+import { AppStore, runApi } from "@/lib"
 
 export function TopSearch() {
   const [path, setPath] = useState("http://localhost:3666/")
+  const store = AppStore.useApiClientStore()
 
-  const onSend = () => {
-    runA
+  const onSend = async () => {
+    const res = await runApi({
+      url: path,
+      method: "GET",
+    })
+
+    console.log(res)
+    store.update({responseBody: res.data})
   }
+
   return (
     <div className="px-5">
       <div
