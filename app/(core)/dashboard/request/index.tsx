@@ -4,7 +4,7 @@ import React from "react"
 import { AppStore } from "@/lib"
 
 import { TabTitle } from "../page"
-import { RequestTabs } from "../tabs"
+import { RequestTabs } from "./tabs"
 import { TopSearch } from "./address"
 
 export default function RequestSection() {
@@ -15,27 +15,27 @@ export default function RequestSection() {
       <div className="flex w-full items-center justify-around mt-2 border-b">
         <TabTitle
           title={"Query"}
-          onClick={() => store.update({ activeTab: "QUERY" })}
-          isActive={store.activeTab === "QUERY"}
+          onClick={() => store.update({ activeReqTab: "QUERY" })}
+          isActive={store.activeReqTab === "QUERY"}
         />
         <TabTitle
           title={"Header"}
-          onClick={() => store.update({ activeTab: "HEADER" })}
-          isActive={store.activeTab === "HEADER"}
+          onClick={() => store.update({ activeReqTab: "HEADER" })}
+          isActive={store.activeReqTab === "HEADER"}
         />
         <TabTitle
           title={"Body"}
-          onClick={() => store.update({ activeTab: "BODY" })}
-          isActive={store.activeTab === "BODY"}
+          onClick={() => store.update({ activeReqTab: "BODY" })}
+          isActive={store.activeReqTab === "BODY"}
         />
         <TabTitle
           title={"Auth"}
-          onClick={() => store.update({ activeTab: "AUTH" })}
-          isActive={store.activeTab === "AUTH"}
+          onClick={() => store.update({ activeReqTab: "AUTH" })}
+          isActive={store.activeReqTab === "AUTH"}
         />
       </div>
       <div className={"h-full overflow-y-hidden"}>
-        {RequestTabs[store.activeTab]}
+        {RequestTabs[store.activeReqTab]}
       </div>
     </div>
   )

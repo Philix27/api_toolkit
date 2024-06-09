@@ -2,7 +2,8 @@ import { AxiosResponseHeaders, RawAxiosResponseHeaders } from "axios"
 import { create } from "zustand"
 import { createJSONStorage, persist } from "zustand/middleware"
 
-export type IApiActiveTab = "QUERY" | "HEADER" | "BODY" | "AUTH"
+export type IApiRequestTab = "QUERY" | "HEADER" | "BODY" | "AUTH"
+export type IApiResponseTab = "RESPONSE" | "HEADER" | "COOKIES" | "SESSION"
 export type IApiMethods = "GET" | "POST" | "DELETE" | "PUT" | "PATCH"
 export type IQueryParams = { key: string; value: string }
 export type ICollection = {
@@ -22,7 +23,8 @@ export interface ISlice {
   responseTime?: string
   requestBearerToken?: string
   requestBasePath?: string
-  activeTab?: IApiActiveTab
+  activeReqTab?: IApiRequestTab
+  activeResTab?: IApiResponseTab
   requestApiMethod?: IApiMethods
   requestHeaders?: any
   collection?: ICollection[]
@@ -39,7 +41,8 @@ export const defaultValues: Required<ISlice> = {
   collection: [],
   requestQueryParams: [],
   requestApiMethod: "GET" as IApiMethods,
-  activeTab: "BODY" as IApiActiveTab,
+  activeReqTab: "BODY" as IApiRequestTab,
+  activeResTab: "RESPONSE" as IApiResponseTab,
   responseBody: "",
   responseCookies: "",
   responseDocs: "",
@@ -47,7 +50,7 @@ export const defaultValues: Required<ISlice> = {
   responseStatus: 0,
   responseTime: "",
   requestBearerToken: "",
-  requestBasePath: "",
+  requestBasePath: "http://localhost:3666/",
   responseHeaders: {},
 }
 
