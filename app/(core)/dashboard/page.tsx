@@ -5,7 +5,7 @@ import { TopSearch } from "./address"
 
 export default function Page() {
   return (
-    <div className={"flex min-h-full w-full"}>
+    <div className={"flex size-full"}>
       <div className={"w-1/2"}>
         <TopSearch />
         <div className="flex w-full items-center justify-between mt-2 border-b">
@@ -17,7 +17,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className={"w-1/2 border-l min-h-screen"}>
+      <div className={"w-1/2 border-l h-full"}>
         <div className="h-[50px] flex items-center mb-4">
           <TabTitle title={"Status"} />
           <TabTitle title={"Size"} />

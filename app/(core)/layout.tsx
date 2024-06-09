@@ -18,10 +18,10 @@ export default function ProtectedLayout({ children }: RootLayoutProps) {
   )
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <div className="flex h-full">
-        {openNav && <SidebarMobile />}
-        {isSidebarOpen && <Sidebar />}
+    <div className="flex flex-col flex-grow h-[calc(100vh-70px)]">
+      {openNav && <SidebarMobile />}
+      {isSidebarOpen && <Sidebar />}
+      <div className={"flex-1"} style={{ height: "100%" }}>
         {children}
       </div>
     </div>

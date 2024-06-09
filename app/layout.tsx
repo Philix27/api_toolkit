@@ -13,17 +13,21 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" suppressHydrationWarning className="overscroll-none no-scrollbar">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className="no-scrollbar overscroll-none"
+    >
       <head />
       <body
         className={cn(
-          "min-h-screen bg-secondary font-sans antialiased overscroll-none no-scrollbar",
+          "no-scrollbar min-h-screen overscroll-none bg-secondary font-sans antialiased",
           fontSans.variable
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="relative flex min-h-screen flex-col">
-            <div className="flex-1">
+          <div className="relative flex h-screen flex-col">
+            <div className="h-full flex flex-col">
               <SiteHeader />
               {children}
             </div>

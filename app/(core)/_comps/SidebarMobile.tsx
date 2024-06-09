@@ -16,7 +16,7 @@ export function SidebarMobile(props: { className?: string }) {
       border-secondary md:hidden fixed`,
         props.className
       )}
-      style={{ height: `calc(100vh - ${StylesUtils.navbarHeight})` }}
+      style={{ height: `calc(100vh-${StylesUtils.navbarHeight})` }}
     >
       <motion.div
         initial={{ x: -40, opacity: 0 }}
