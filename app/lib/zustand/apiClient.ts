@@ -1,6 +1,7 @@
 import { create } from "zustand"
 import { createJSONStorage, persist } from "zustand/middleware"
 
+export type IApiActiveTab = "QUERY" | "HEADER" | "BODY" | "AUTH" | "TEST"
 export type IApiMethods = "GET" | "POST" | "DELETE" | "PUT" | "PATCH"
 export type IQueryParams = { key: string; value: string }
 export type ICollection = {
@@ -21,6 +22,7 @@ export interface ISlice {
   responseTime?: string
   bearerToken?: string
   basePath?: string
+  activeTab?: IApiActiveTab
   apiMethod?: IApiMethods
   headers?: IQueryParams[]
   queryParams?: IQueryParams[]
@@ -45,6 +47,7 @@ export const defaultValues = {
   headers: [],
   queryParams: [],
   apiMethod: "GET" as IApiMethods,
+  activeTab: "BODY" as IApiActiveTab,
 }
 
 export const useApiClientStore = create(
