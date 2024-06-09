@@ -13,18 +13,10 @@ import { SidebarGroup } from "./SidebarGroup"
 export function Sidebar(props: { className?: string }) {
   const state = AppStores.useSettingsStore((state) => state)
   return (
-    <div
-      className={`bg-slate-800 w-full fixed bg-opacity-30`}
-      onClick={(e) => {
-        // e.preventDefault()
-        // e.stopPropagation()
-        // e.nativeEvent.stopImmediatePropagation()
-        // state.setIsSidebarOpen(false)
-      }}
-    >
+    <div className={`fixed w-full bg-slate-800/40 flex`}>
       <div
         className={cn(
-          `w-[250px] border-l-[2px] bg-primary pt-4 hidden md:block
+          `w-[250px] border-l-[2px] bg-background pt-4 hidden md:block
         border-r-2 border-secondary mt-[${StylesUtils.navbarHeight}]`,
           props.className
         )}
@@ -52,6 +44,15 @@ export function Sidebar(props: { className?: string }) {
           </div>
         ))}
       </div>
+      <div
+        className="h-screen w-full"
+        onClick={(e) => {
+          e.preventDefault()
+          e.stopPropagation()
+          e.nativeEvent.stopImmediatePropagation()
+          state.setIsSidebarOpen(false)
+        }}
+      ></div>
     </div>
   )
 }

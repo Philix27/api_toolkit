@@ -17,8 +17,19 @@ export default function Page() {
         </div>
       </div>
 
-      <div className={"w-1/2 bg-teal-400"}>
-        response header cookies result docs
+      <div className={"w-1/2 border-l min-h-screen"}>
+        <div className="h-[50px] flex items-center mb-4">
+          <TabTitle title={"Status"} />
+          <TabTitle title={"Size"} />
+          <TabTitle title={"Time"} />
+        </div>
+        <div className="flex w-full items-center justify-between mt-2 border-b">
+          <TabTitle title={"Response"} />
+          <TabTitle title={"Headers"} />
+          <TabTitle title={"Cookies"} />
+          <TabTitle title={"Result"} />
+          <TabTitle title={"Docs"} />
+        </div>
       </div>
     </div>
   )

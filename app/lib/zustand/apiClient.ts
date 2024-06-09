@@ -3,8 +3,15 @@ import { createJSONStorage, persist } from "zustand/middleware"
 
 export type IApiMethods = "GET" | "POST" | "DELETE" | "PUT" | "PATCH"
 export type IQueryParams = { key: string; value: string }
+export type ICollection = {
+  baseUrl: string
+  path: string
+  method: IApiMethods
+  name?: string
+}
 
 export interface ISlice {
+  collection?: ICollection[]
   responseBody?: string
   responseCookies?: string
   responseHeaders?: string
@@ -21,26 +28,36 @@ export interface ISlice {
 
 export interface ISliceUpdate extends Required<ISlice> {
   update: (data: ISlice) => void
+  clear: () => void
+}
+
+export const defaultValues = {
+  collection: [],
+  responseSize: "",
+  responseTime: "",
+  responseStatus: "",
+  responseBody: "",
+  responseCookies: "",
+  responseHeaders: "",
+  responseDocs: "",
+  bearerToken: "",
+  basePath: "",
+  headers: [],
+  queryParams: [],
+  apiMethod: "GET" as IApiMethods,
 }
 
 export const useApiClientStore = create(
   persist<ISliceUpdate>(
     (set) => ({
-      responseSize: "",
-      responseTime: "",
-      responseStatus: "",
-      responseBody: "",
-      responseCookies: "",
-      responseHeaders: "",
-      responseDocs: "",
-      bearerToken: "",
-      basePath: "",
-      apiMethod: "GET",
-      headers: [],
-      queryParams: [],
+      ...defaultValues,
       update: (data) =>
         set((state) => {
           return { ...state, ...data }
+        }),
+      clear: () =>
+        set((state) => {
+          return { ...state, ...defaultValues }
         }),
     }),
     {

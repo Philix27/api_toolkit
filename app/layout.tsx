@@ -13,11 +13,11 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="overscroll-none no-scrollbar">
       <head />
       <body
         className={cn(
-          "min-h-screen bg-secondary font-sans antialiased",
+          "min-h-screen bg-secondary font-sans antialiased overscroll-none no-scrollbar",
           fontSans.variable
         )}
       >

@@ -1,6 +1,6 @@
 "use client"
 
-import { SidebarClose, SidebarOpen } from "lucide-react"
+import { LuPanelLeftClose, LuPanelRightClose } from "react-icons/lu"
 
 import { ThemeToggle } from "@/app/comps"
 import { AppStores, StylesUtils } from "@/app/lib"
@@ -12,7 +12,7 @@ export function SiteHeader() {
   const state = AppStores.useSettingsStore((state) => state)
 
   return (
-    <header className="bg-secondary sticky top-0 z-40 w-full border-b">
+    <header className="bg-background sticky top-0 z-40 w-full border-b">
       <div
         className={`
         container flex h-[${StylesUtils.navbarHeight}] 
@@ -22,13 +22,15 @@ export function SiteHeader() {
         <MainNav items={siteConfig.mainNav} />
         <div className="flex flex-1 items-center justify-end space-x-4">
           {state.isSidebarOpen ? (
-            <SidebarOpen
+            <LuPanelLeftClose
+              size={20}
               onClick={() => {
                 state.setIsSidebarOpen(!state.isSidebarOpen)
               }}
             />
           ) : (
-            <SidebarClose
+            <LuPanelRightClose
+              size={20}
               onClick={() => {
                 state.setIsSidebarOpen(!state.isSidebarOpen)
               }}

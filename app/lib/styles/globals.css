@@ -49,8 +49,8 @@
     --popover: 224 71% 4%;
     --popover-foreground: 215 20.2% 65.1%;
 
-    --border:#1e1f24;
-    --input:#1b1d23;
+    --border: #434344;
+    --input: #1b1d23;
 
     --card: #0d1116;
     --card-foreground: #efefef;
@@ -77,5 +77,15 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
