@@ -1,5 +1,7 @@
 import React from "react"
+import { AppStore } from "@/lib"
 
 export function SessionsTab() {
-  return <div className=" h-full ">QueryTab</div>
+  const store = AppStore.useApiClientStore()
+  return <div className="">{store.responseCookies}</div>
 }

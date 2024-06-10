@@ -20,7 +20,7 @@ export interface ISlice {
   responseDocs?: string
   responseSize?: string
   responseStatus?: number
-  responseTime?: string
+  responseTime?: number
   requestBearerToken?: string
   requestBasePath?: string
   activeReqTab?: IApiRequestTab
@@ -48,7 +48,7 @@ export const defaultValues: Required<ISlice> = {
   responseDocs: "",
   responseSize: "",
   responseStatus: 0,
-  responseTime: "",
+  responseTime: 0,
   requestBearerToken: "",
   requestBasePath: "http://localhost:3666/",
   responseHeaders: {},

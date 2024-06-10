@@ -12,7 +12,7 @@ export * from "./ResTab"
 export * from "./HeadersTab"
 export * from "./CookiesTab"
 
-export const RequestTabs: Record<IApiResponseTab, ReactNode> = {
+export const ResponseTabs: Record<IApiResponseTab, ReactNode> = {
   RESPONSE: <ResponseTab />,
   HEADER: <HeadersTab />,
   COOKIES: <CookiesTab />,

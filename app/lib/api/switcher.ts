@@ -1,7 +1,7 @@
 import { IApiMethods } from "@/lib"
 import axios, { AxiosResponse } from "axios"
 
-type IProps = { url: string; method: IApiMethods; data?: Record<string, any> }
+type IProps = { url: string; method: IApiMethods; data?: string }
 
 export function runApi(props: IProps): Promise<AxiosResponse<any, any>> {
   switch (props.method) {

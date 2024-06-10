@@ -1,15 +1,17 @@
 "use client"
 
 import { useState } from "react"
-import { AppStore, runApi } from "@/lib"
+import { AppStore, IApiMethods, runApi } from "@/lib"
 
 export function TopSearch() {
   const store = AppStore.useApiClientStore()
 
   const onSend = async () => {
+    let startTimestamp = Date.now()
     await runApi({
       url: store.requestBasePath,
-      method: "GET",
+      method: store.requestApiMethod,
+      data: store.responseBody,
     })
       .then((res) => {
         store.update({
@@ -24,6 +26,10 @@ export function TopSearch() {
           responseStatus: err.code,
         })
       })
+    let endTimestamp = Date.now()
+    store.update({
+      responseTime: endTimestamp - startTimestamp,
+    })
   }
 
   return (
@@ -36,12 +42,20 @@ export function TopSearch() {
         `}
       >
         <div className="mr-2 p-2 outline-none border-r-[0.5px]">
-          <select className="bg-transparent pr-2 p-2 outline-none">
-            <option>GET</option>
-            <option>POST</option>
-            <option>DELETE</option>
-            <option>PUT</option>
-            <option>PATCH</option>
+          <select
+            className="bg-transparent pr-2 p-2 outline-none"
+            value={store.requestApiMethod}
+            onChange={(e) =>
+              store.update({
+                requestApiMethod: e.target.value as IApiMethods,
+              })
+            }
+          >
+            <option value={"GET"}>GET</option>
+            <option value={"POST"}>POST</option>
+            <option value={"DELETE"}>DELETE</option>
+            <option value={"PUT"}>PUT</option>
+            <option value={"PATCH"}>PATCH</option>
           </select>
         </div>
         <div className="flex w-full">
